@@ -24,7 +24,7 @@ export class BooksServices{
     createBook(name: string, pages: number, category: string | undefined, createdAt: Date, updatedAt: Date) {
         const existingBook = booksDatabase.find(book => book.name === name);
         if (existingBook) {
-            throw new AppError(409, "Book with this name already exists."); 
+            throw new AppError(409, "Book already registered."); 
         }
 
         const newBook: TBook = { id: generateId(), name, pages, category, createdAt, updatedAt };
